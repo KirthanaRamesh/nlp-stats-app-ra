@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NLP Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="index_style.css">
+    <script>
+        function toggleInput(isFileSelected) {
+            var fileInput = document.getElementById('file-upload');
+            var fileInputLabel = document.getElementById('file-label');
+            var textInput = document.getElementById('text-input');
+            var analyzeButton = document.getElementById('analyze-button');
+  			var output1 = document.getElementById('file-select-div');
+
+
+            if (isFileSelected) {
+                fileInputLabel.style.display = 'inline-block';
+                fileInput.style.display = 'none';
+                textInput.style.display = 'none';
+                textInput.value = ''; // Clear text input
+                analyzeButton.disabled = !fileInput.value; // Enable button if file is selected
+               output1.innerHTML +=  '';
+            } else {
+                fileInputLabel.style.display = 'none';
+                fileInput.style.display = 'none';
+                textInput.style.display = 'inline-block';
+                fileInput.value = '';
+                output1.innerHTML =  '';
+                analyzeButton.disabled = true; // Disable button for text input until something is typed
+            }
+        }
+       
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var fileInput = document.getElementById('file-upload');
+            var textInput = document.getElementById('text-input');
+            var analyzeButton = document.getElementById('analyze-button');
+            var output1 = document.getElementById('file-select-div');
+            document.getElementById("file-select-div").disabled = true;
+
+            fileInput.addEventListener('change', function() {
+                analyzeButton.disabled = !fileInput.value; // Enable button if file is selected
+                var file_path = fileInput.value;
+                var file_elements = file_path.split("\\");
+                output1.innerText = 'File Chosen:   '+ file_elements[file_elements.length-1];
+                
+            });
+
+            textInput.addEventListener('keyup', function() {
+                analyzeButton.disabled = !textInput.value.trim(); // Enable button if text is entered
+                output1.innerText = '';
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>NLP Statistics Analyzer</h1>
+        <h3>What is NLP?</h3>
+        <p>Natural Language Processing (NLP) is a field of artificial intelligence that focuses on the interaction between computers 
+			and humans through natural language. The ultimate objective of NLP is to read, decipher, understand, and make sense of 
+			human languages in a valuable way.</p>
+        <p>This NLP Analyzer will give you insights on the number of words, the number of sentences, the number of verbs, 
+			number of common nouns (both singular and plural), number of proper nouns and Type Token Ratio(TTR).</p>
+		<p>A Type-token ratio (TTR) is a measure used in linguistics and text analysis to determine the diversity of words 
+			in a piece of text. A higher TTR indicates a more diverse vocabulary, while a lower TTR suggests that a smaller 
+			set of words is being repeated frequently in the text.</p>
+        <p>
+			This web interface provides a mechanism for File Upload and TextBox. The users can use any one of the interfaces. The input 
+			provided is compared to the aggregate already stored in the application. The aggregate was prepared by using 100 pages 
+			webscrapped from the web pages at https://www.healthline.com/directory/topics using a python script. Select one option:
+        </p>
+        
+        <form method="POST" action="/compare" enctype="multipart/form-data">
+            <div class="input-option">
+                <input id="input-radio-file" type="radio" name="inputMethod" value="file" checked onclick="toggleInput(true)">
+                <label for="input-radio-file">Upload a file to analyze</label>
+                <input id="file-upload" type="file" name="file" style="display: none;"/>
+                <label for="file-upload" id="file-label" class="button">Choose a file</label>
+                <div id="file-select-div"> </div>
+                <!--<br></br>-->
+                
+            </div>
+            <div class="input-option">
+                <input id="input-radio-text" type="radio" name="inputMethod" value="text" onclick="toggleInput(false)">
+                <label for="input-radio-text">Enter text to analyze:</label>
+                <textarea id="text-input" name="text" style="display:none;"></textarea>
+            </div>
+            <button type="submit" id="analyze-button" class="button" disabled>Analyze</button>
+        </form>
+    </div>
+    <br></br>
+
+    <footer class="footer">
+		<hr>
+        Developed by Kirthana Ramesh
+        kirthanaramesh[at]arizona[dot]edu
+        <br></br>
+        <p>Tools Used</p>
+        <ul>
+        <li>Sprint Boot v3.2.2 web Application, thymeleaf html template</li>
+        <li>JDK 17</li>
+        <li>stanford core nlp java package 4.2.0</li>
+        <li>IDE - Spring Tool Suite 4</li>
+        </ul>     
+    </footer>
+</body>
+</html>
+
+
+

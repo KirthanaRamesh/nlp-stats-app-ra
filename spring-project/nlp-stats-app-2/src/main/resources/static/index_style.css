@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 50;
+    padding: 30;
+    background-color: #f4f4f4;
+}
+
+
+.input-option {
+    margin-bottom: 15px;
+}
+
+.input-option label {
+    margin-right: 10px;
+}
+
+.file-label {
+    background-color: #3498DB; /* Blue color */
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+.input-option input[type="radio"] {
+    margin-right: 5px;
+}
+
+textarea#text-input {
+    width: calc(100% - 20px); /* Full-width minus padding */
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    display: none; /* Initially hidden */
+}
+
+button#analyze-button {
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #48C9B0; /* Softer green color */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #40B0A6; /* Slightly darker green for hover */
+}

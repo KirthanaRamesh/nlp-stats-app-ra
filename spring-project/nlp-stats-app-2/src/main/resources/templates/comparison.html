@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparison Results</title>
+    <link rel="stylesheet" type="text/css" href="comparison_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparison Results</h1>
+        <div class="description">
+            This table provides a comparison of various text statistics. 
+            It contrasts individual input text metrics against aggregated results, 
+            offering a comprehensive view of data variance and consistency. 
+            Each metric serves to improve the understanding of textual analysis.
+        </div>
+        <table>
+            <tr>
+                <th>Statistic</th>
+                <th>Input Text</th>
+                <th>Aggregated Result</th>
+            </tr>
+            
+            <tr>
+                <td>Word Count</td>
+                <td th:text="${result.wordCount}"></td>
+                <td th:text="${aggregatedResult.wordCount}"></td>
+            </tr>
+            <tr>
+                <td>Sentence Count</td>
+                <td th:text="${result.sentenceCount}"></td>
+                <td th:text="${aggregatedResult.sentenceCount}"></td>
+            </tr>
+            <tr>
+                <td>Verb Count</td>
+                <td th:text="${result.verbCount}"></td>
+                <td th:text="${aggregatedResult.verbCount}"></td>
+            </tr>
+            <tr>
+                <td>Common Noun Count</td>
+                <td th:text="${result.commonNounCount}"></td>
+                <td th:text="${aggregatedResult.commonNounCount}"></td>
+            </tr>
+            <tr>
+                <td>Proper Noun Count</td>
+                <td th:text="${result.properNounCount}"></td>
+                <td th:text="${aggregatedResult.properNounCount}"></td>
+            </tr>
+            <tr>
+				<td>Type Token Ratio<br /><sub style="font-size: smaller;">(0 - Very Few Unique Words; 1 - Wide Variety of Unique Words)</sub></td>
+                <!--<td>Type Token Ratio (0 - Very Few Unique Words, 1 - Wide Variety of Unique Words)</td>-->
+                <td th:text="${result.typeTokenRatio}"></td>
+                <td th:text="${aggregatedResult.typeTokenRatio}"></td>
+            </tr>
+        </table>
+    </div>
+    <br></br>
+    <br></br>
+        <footer class="footer">
+		<hr>
+        Developed by Kirthana Ramesh
+        kirthanaramesh[at]arizona[dot]edu
+        <br></br>
+        <p>Tools Used</p>
+        <ul>
+        <li>Sprint Boot v3.2.2 web Application, thymeleaf html template</li>
+        <li>JDK 17</li>
+        <li>stanford core nlp java package 4.2.0</li>
+        <li>IDE - Spring Tool Suite 4</li>
+        </ul>     
+    </footer>
+</body>
+</html>

@@ -89,3 +89,5 @@ Usage & Customization
 
 • Next, download the project and import it into Spring Tool Suite then ensure the correct file path is set in `NLPService.java` for reading 'aggregated_results.csv' and run the project as a Spring Boot Application. In your browser access htp://localhost:8080/ Follow the instructions on the web page from there on.
 • Input can be provided either as a text file (please use .txt file format) or directly as a text.
+
+The video file 􀆟tled "demo_video.mp4" provides a concise and informa􀆟ve narra􀆟on covering both the Python script and the Spring Applica􀆟on. Addi􀆟onally, it demonstrates the program in ac􀆟on, showcasing the output results. Because the video file is too big, attaching the video link here: https://drive.google.com/file/d/1IuB_65nAtM0oxtsh7Lg1WMu4S7Ul0b1B/view
